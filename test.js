@@ -227,7 +227,7 @@ test('Use queries for get all accounts', async t => {
     t.true(account.balance == '978.52', 'balance query failed')
   })
 
-  
+
 })
 
 test('Update one account', async t => {
@@ -278,6 +278,6 @@ function fakeaccount() {
     cardtype: cardtypes[getRand(cardtypes.length)],
     card_number: Math.floor(Math.random() * 70) + 20,
     balance: Math.floor(Math.random() * 70) + 20,
-    approved_states: states[getRand(faves.length)]
+    approved_states: states[getRand(states.length)]
   }
 }
