@@ -97,4 +97,4 @@
 {"id":97,"card_number":"5641823755015644081","card_type":"switch","balance":"821.01","first_name":"Judy","last_name":"Greene","approved_states":["Texas"]},
 {"id":98,"card_number":"5602215080673416","card_type":"china-unionpay","balance":"177.13","first_name":"Jonathan","last_name":"Rice","approved_states":["Idaho"]},
 {"id":99,"card_number":"30450190002841","card_type":"diners-club-carte-blanche","balance":"944.15","first_name":"Ruth","last_name":"Moore","approved_states":["Montana"]},
-{"id":100,"card_number":"3528582346656832","card_type":"jcb","balance":"630.71","first_name":"Kevin","last_name":"Simmons","approved_states":["California"}]
+{"id":100,"card_number":"3528582346656832","card_type":"jcb","balance":"630.71","first_name":"Kevin","last_name":"Simmons","approved_states":["California"]}]
