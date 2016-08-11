@@ -24,7 +24,7 @@ Create the following endpoints in `server.js` using express.
 
 1.  Get all accounts. Return all accounts from the accounts array.
    `GET: /api/accounts`
-   
+
 2.  Get all accounts by `card_type`. You will receive the `card_type` as a query (visa, mastercard, etc).  Return an array of all accounts that have the same type specified in the query.
    `GET: /api/accounts?cardtype=visa`
 
@@ -38,11 +38,11 @@ Create the following endpoints in `server.js` using express.
 * Collections should be initialized with a defualt array.  
 * Return a valid status code and the new account object you created (with the id on it).  
 
-6.  Change a account's card type. The language will be sent in the body `{cardtype: "New card type"}`. Update the account in your array and then return a valid status code and the updated account object.
+6.  Change a account's card type. The language will be sent in the body `{card_type: "New card type"}`. Update the account in your array and then return a valid status code and the updated account object.
    `POST: /api/accounts/cardtype/` + accountId
 
 7.  Add to a accounts approved states. Use params to get a account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
-   `POST: /api/accounts/:accountId/approvedstates/` 
+   `POST: /api/accounts/:accountId/approvedstates/`
 
 8. Remove from a accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the forum to delete in the query. You will need to search your array and splice it out.
    `DELETE: /api/accounts/:accountID/approvedstates/` + `?state=` + statename.

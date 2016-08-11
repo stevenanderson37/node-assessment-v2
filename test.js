@@ -66,29 +66,29 @@ test('Change a accounts card type', async t => {
 
   req = await request(app)
     .post('/api/accounts/cardtype/' + id)
-    .send({cardtype: 'bluecard'})
+    .send({card_type: 'bluecard'})
 
-  t.is(req.status, 200, 'error changing cardtype to bluecard');
+  t.is(req.status, 200, 'error changing card_type to bluecard');
 
   req = await request(app)
     .get('/api/accounts/' + id)
 
   t.is(req.status, 200);
-  t.truthy(req.body.cardtype);
-  t.is(req.body.cardtype, 'bluecard');
+  t.truthy(req.body.card_type);
+  t.is(req.body.card_type, 'bluecard');
 
   req = await request(app)
     .post('/api/accounts/cardtype/' + id)
-    .send({cardtype: 'greencard'})
+    .send({card_type: 'greencard'})
 
-  t.is(req.status, 200, 'error changing cardtype to greencard')
+  t.is(req.status, 200, 'error changing card_type to greencard')
 
   req = await request(app)
     .get('/api/accounts/' + id)
 
   t.is(req.status, 200);
-  t.truthy(req.body.cardtype);
-  t.is(req.body.cardtype, 'greencard');
+  t.truthy(req.body.card_type);
+  t.is(req.body.card_type, 'greencard');
 })
 
 test('add to a accounts approved states', async t => {
@@ -275,7 +275,7 @@ function fakeaccount() {
   return {
     first_name: Faker.name.firstName(),
     last_name: Faker.name.lastName(),
-    cardtype: cardtypes[getRand(cardtypes.length)],
+    card_type: cardtypes[getRand(cardtypes.length)],
     card_number: Math.floor(Math.random() * 70) + 20,
     balance: Math.floor(Math.random() * 70) + 20,
     approved_states: states[getRand(states.length)]
