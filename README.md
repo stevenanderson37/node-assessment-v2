@@ -42,10 +42,10 @@ Create the following endpoints in `server.js` using express.
    `POST: /api/accounts/cardtype/` + accountId
 
 7.  Add to a accounts approved states. Use params to get a account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
-   `POST: /api/accounts/:accountId/approvedstates/`
+   `POST: /api/accounts/approvedstates/:accountId/`
 
 8. Remove from a accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the forum to delete in the query. You will need to search your array and splice it out.
-   `DELETE: /api/accounts/:accountID/approvedstates/` + `?state=` + statename.
+   `DELETE: /api/accounts/approvedstates/:accountID/` + `?state=` + statename.
 
 9.  Ban (delete) a account. Use REST method delete and the query params to delete a account by their id number.
    `DELETE: /api/accounts/` + accountID
