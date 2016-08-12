@@ -129,7 +129,7 @@ test('add to an accounts approved states', async t => {
 
 })
 
-test('remove from a accounts approved_states', async t => {
+test('remove from an accounts approved_states', async t => {
   let newaccount = fakeaccount();
   let id;
 
@@ -168,7 +168,7 @@ test('remove from a accounts approved_states', async t => {
   }, false)
 })
 
-test('ban(delete) a account', async t => {
+test('ban(delete) an account', async t => {
   let account = fakeaccount();
 
   // Create a new account
