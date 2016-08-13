@@ -51,9 +51,10 @@ test('Create new account', async t => {
     .send(newaccount)
 
   t.is(req.status, 200, 'Make sure you are using bodyParser');
+  t.is(true, accounts.length > colLength, 'account was not added correctly');
 })
 
-test('Change a accounts card type', async t => {
+test('Change an accounts card type', async t => {
   let newaccount = fakeaccount();
   let id;
   let req = await request(app)
@@ -91,7 +92,7 @@ test('Change a accounts card type', async t => {
   t.is(req.body.card_type, 'greencard');
 })
 
-test('add to a accounts approved states', async t => {
+test('add to an accounts approved states', async t => {
   let newaccount = fakeaccount();
   let id;
 
@@ -128,13 +129,15 @@ test('add to a accounts approved states', async t => {
 
 })
 
-test('remove from a accounts approved_states', async t => {
+test('remove from an accounts approved_states', async t => {
   let newaccount = fakeaccount();
   let id;
 
   // CREATE NEW FORUM
   let res = await request(app)
     .post('/api/accounts')
+    .send(newaccount)
+
 
   t.is(res.status, 200);
   t.truthy(res.body.id);
@@ -143,7 +146,7 @@ test('remove from a accounts approved_states', async t => {
   // ADD TO account approved_states
   res = await request(app)
     .post('/api/accounts/approvedstates/' + id)
-    .send('foo')
+    .send({add: 'foo'})
 
   t.is(res.status, 200);
 
@@ -165,7 +168,7 @@ test('remove from a accounts approved_states', async t => {
   }, false)
 })
 
-test('ban(delete) a account', async t => {
+test('ban(delete) an account', async t => {
   let account = fakeaccount();
 
   // Create a new account
@@ -176,7 +179,6 @@ test('ban(delete) a account', async t => {
   t.is(res.status, 200);
   t.truthy(res.body.id);
   account.id = res.body.id;
-
   // Delete that account
   res = await request(app)
     .delete('/api/accounts/' + account.id)
@@ -187,7 +189,7 @@ test('ban(delete) a account', async t => {
   res = await request(app)
     .get('/api/accounts/' + account.id)
 
-  t.is(res.status, 404, 'Make sure that when a account is not found that the server returns 404');
+  t.is(res.status, 404, 'Make sure that when an account is not found that the server returns 404');
   t.truthy(res.body);
   t.falsy(res.body[0], 'account still exists, delete endpoint is not working');
 
@@ -235,6 +237,7 @@ test('Update one account', async t => {
 
   let res = await request(app)
     .post('/api/accounts')
+    .send(account)
 
   t.is(res.status, 200);
   t.truthy(res.body.id);
