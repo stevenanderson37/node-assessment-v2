@@ -38,7 +38,7 @@ Create the following endpoints in `server.js` using express.
 * The 'approved_states' property should be initialized as a collection (array) containing the approved state sent in the body.
 * Return a valid status code and the new account object you created (with the id on it).  
 
-6.  Change an account's card type. The language will be sent in the body `{card_type: "New card type"}`. Update the account in your array and then return a valid status code and the updated account object.
+6.  Change an account's card type. The card type will be sent in the body `{card_type: "New card type"}`. Update the account in your array and then return a valid status code and the updated account object.
    `POST: /api/accounts/cardtype/` + accountId
 
 7.  Add to an accounts approved states. Use params to get an account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
