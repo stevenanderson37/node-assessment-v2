@@ -25,7 +25,7 @@ Create the following endpoints in `server.js` using express.
 1.  Get all accounts. Return all accounts from the accounts array.
    `GET: /api/accounts`
 
-2.  Get all accounts by `card_type`. You will receive the `card_type` as a query (visa, mastercard, etc).  Return an array of all accounts that have the same type specified in the query.
+2.  Get all accounts by `card_type`. You will receive the `card_type` as a query (visa, mastercard, etc).  Return an array of all accounts that have the same type specified in the query. Query params are case sensitive, so '?cardtype=VISA' will not match a 'visa' in accounts.
    `GET: /api/accounts?cardtype=visa`
 
 3. Find one account by id. Use the url params to get the id. Make sure that a get request for an account that does not exists returns a 404 status and a message that says 'account could not be found'.
@@ -44,7 +44,7 @@ Create the following endpoints in `server.js` using express.
 7.  Add to an accounts approved states. Use params to get an account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
    `POST: /api/accounts/approvedstates/:accountId/`
 
-8. Remove from an accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the state to delete in the query. You will need to search your array and splice it out.
+8. Remove from an accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the state to delete in the query. You will need to search your array and splice it out. Note, this will not work unless #5 is working correctly.
    `DELETE: /api/accounts/approvedstates/:accountId/` + `?state=` + statename.
 
 9.  Ban (delete) an account. Use REST method delete and the query params to delete an account by their id number.
