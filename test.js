@@ -51,7 +51,9 @@ test('Create new account', async t => {
     .send(newaccount)
 
   t.is(req.status, 200, 'Make sure you are using bodyParser');
+  t.truthy(Array.isArray(req.body.approved_states))
   t.is(true, accounts.length > colLength, 'account was not added correctly');
+
 })
 
 test('Change an accounts card type', async t => {
@@ -117,7 +119,7 @@ test('add to an accounts approved states', async t => {
     .get('/api/accounts/' + id)
 
   t.is(res.status, 200);
-  t.is(true, Array.isArray(res.body.approved_states))
+  t.is(true, Array.isArray(res.body.approved_states));
 
   t.is(
     true,
